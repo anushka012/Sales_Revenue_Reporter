@@ -30,7 +30,7 @@ def read_product_master(filename):
     product_map = {}
     with open(filename, mode='r', newline='') as file:
         reader = csv.reader(file)
-        for row in reader:  # ✅ Do NOT skip first row
+        for row in reader:  
             product_id, name, price, lot_size = row
             product_map[int(product_id)] = {
                 'name': name,
