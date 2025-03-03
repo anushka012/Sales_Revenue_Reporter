@@ -30,8 +30,7 @@ def read_product_master(filename):
     product_map = {}
     with open(filename, mode='r', newline='') as file:
         reader = csv.reader(file)
-        next(reader)  
-        for row in reader:
+        for row in reader:  # ✅ Do NOT skip first row
             product_id, name, price, lot_size = row
             product_map[int(product_id)] = {
                 'name': name,
@@ -47,8 +46,7 @@ def process_sales(filename, team_map, product_map):
     
     with open(filename, mode='r', newline='') as file:
         reader = csv.reader(file)
-        next(reader)  # ✅ Skip the header row
-        for row in reader:
+        for row in reader:  
             sale_id, product_id, team_id, quantity, discount = row
             product_id, team_id, quantity = int(product_id), int(team_id), int(quantity)
             discount = float(discount)

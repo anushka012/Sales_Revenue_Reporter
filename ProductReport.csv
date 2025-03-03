@@ -1,4 +1,7 @@
 Name,GrossRevenue,TotalUnits,DiscountCost
-Complete System (Basic),1000.00,2,80.00
+Elite Device,8000.00,8,450.00
+Complete System (Deluxe),3125.00,5,375.00
+Complete System (Basic),1500.00,3,92.50
+Super Gadget,1500.00,30,225.00
 Minor Widget,687.50,2750,0.00
 Critical Widget,250.00,50,12.50
