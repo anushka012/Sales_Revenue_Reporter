@@ -190,9 +190,9 @@ pytest test_report.py -v
 
 These automated tests ensure that all error handling mechanisms function correctly.
 
----
-
 ✅ **Proper error handling has been implemented in the code to ensure robustness and prevent unexpected failures.**
+
+---
 
 ## Author
 Developed by Anushka Sarath. Feel free to modify and extend this script as needed!
@@ -202,7 +202,5 @@ Developed by Anushka Sarath. Feel free to modify and extend this script as neede
 ## **GitHub Repository**
 You can find the complete source code and documentation on GitHub:
 🔗 **[GitHub Repository](https://github.com/anushka012/Sales_Revenue_Reporter)**
-
---- 
 
 🎯 This README ensures anyone can understand the script's functionality and run it correctly!
