@@ -199,11 +199,10 @@ Developed by Anushka Sarath. Feel free to modify and extend this script as neede
 
 ---
 
----
-
 ## **GitHub Repository**
 You can find the complete source code and documentation on GitHub:
 🔗 **[GitHub Repository](https://github.com/anushka012/Sales_Revenue_Reporter)**
 
+--- 
 
 🎯 This README ensures anyone can understand the script's functionality and run it correctly!
