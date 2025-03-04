@@ -110,9 +110,100 @@ The script **only uses built-in Python libraries**:
   - Verify that **Lot Size** and **Discounts** are correctly factored in.
   - Check for any formatting issues in input files.
 
+## Error Handling
+
+The script includes robust error handling to ensure smooth execution. Below is a detailed explanation of tests conducted for handling missing files, missing arguments, and automated testing.
+
+### **1. Test: Handling Missing `ProductMaster.csv` File**
+#### **Scenario:**
+When the script is executed without the `ProductMaster.csv` file, it should detect the missing file and display an appropriate error message instead of crashing. I renamed the "ProductMaster.csv" to "ProductMaster_2.csv" in this testcase.
+
+#### **Steps to Reproduce:**
+1. Navigate to the project directory.
+2. Temporarily remove or rename `ProductMaster.csv`.
+3. Run the script with the following command:
+   ```sh
+   python report.py -t TeamMap.csv -p ProductMaster.csv -s Sales.csv --team-report=TeamReport.csv --product-report=ProductReport.csv
+   ```
+
+#### **Expected Output:**
+The script should display the following error message and terminate execution:
+```
+Error: The required file 'ProductMaster.csv' is missing. Please ensure it is in the correct directory.
+```
+
+#### **Explanation:**
+- The script first verifies the existence of all required files before proceeding.
+- Since `ProductMaster.csv` is missing, the function `check_file_exists(filename)` triggers an error message.
+- Instead of crashing with a Python traceback, the script **gracefully exits** after informing the user about the missing file.
+
+#### **Screenshot of the Test Result:**
+![Missing ProductMaster.csv Error](images/1.png)
+
+---
+
+### **2. Test: Handling Missing Command-Line Arguments**
+#### **Scenario:**
+If the script is executed without the required command-line arguments, it should display an appropriate error message instead of proceeding with incomplete inputs.
+
+#### **Steps to Reproduce:**
+1. Navigate to the project directory.
+2. Run the script **without any arguments**:
+   ```sh
+   python report.py
+   ```
+3. **Expected Output:**
+   ```
+   usage: report.py [-h] -t TEAM_MAP -p PRODUCT_MASTER -s SALES --team-report TEAM_REPORT --product-report PRODUCT_REPORT
+   report.py: error: the following arguments are required: -t/--team-map, -p/--product-master, -s/--sales, --team-report, --product-report
+   ```
+
+#### **Explanation:**
+- The script uses `argparse` to **enforce mandatory arguments**.
+- If any required argument is missing, `argparse` automatically generates a **user-friendly error message**.
+- This prevents the script from running with incomplete inputs.
+
+#### **Screenshot of the Test Result:**
+![Missing Arguments Error](images/2.png)
+
+---
+
+### **3. Automated Error Handling Tests**
+To ensure consistent error handling, an automated test file `test_report.py` was created using `pytest`. This test file verifies multiple error scenarios, such as:
+- **Missing input files (`ProductMaster.csv`, `TeamMap.csv`)**
+- **Malformed CSV files (e.g., missing columns in `ProductMaster.csv`)**
+
+#### **Installing `pytest`**
+Before running the tests, ensure `pytest` is installed. If not, install it using:
+```sh
+pip install pytest
+```
+
+#### **Test Execution:**
+The test suite was executed using the following command:
+```sh
+pytest test_report.py -v
+```
+
+#### **Screenshot of the Test Results:**
+![Automated Testing Results](images/3.png)
+
+These automated tests ensure that all error handling mechanisms function correctly.
+
+---
+
+✅ **Proper error handling has been implemented in the code to ensure robustness and prevent unexpected failures.**
+
 ## Author
 Developed by Anushka Sarath. Feel free to modify and extend this script as needed!
 
 ---
-🎯 This README ensures anyone can understand the script's functionality and run it correctly!
 
+---
+
+## **GitHub Repository**
+You can find the complete source code and documentation on GitHub:
+🔗 **[GitHub Repository](https://github.com/anushka012/Sales_Revenue_Reporter)**
+
+
+🎯 This README ensures anyone can understand the script's functionality and run it correctly!
